@@ -1,6 +1,5 @@
 #!/usr/bin/python
-# -*-coding:utf-8-*-       #指定编码格式，python默认unicode编码
-
+# -*-coding:utf-8-*-
 
 import time
 import os
@@ -78,7 +77,7 @@ def sendEmail() :
     header = ("From: %s\nTo: %s\nSubject: %s\n\n" %
               ("bvbfan@sina.com",
                "fanleiabcd@qq.com",
-               chst.header_encode("小米印度生态链缺货清单")))
+               chst.header_encode("mi india")))
 
     # 打开目标文档后读取并保存至msg这个多行str变量里。
     #f = open("./test121.txt", 'r', encoding='utf-8')
@@ -102,19 +101,19 @@ def sendEmail() :
 if __name__ == '__main__':
     print("colecting json....")
     while True:
-        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '09:40:00':
+        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '06:40:00':
             os.system("scrapy crawl mi -o info1.json -t json")
             #time.sleep(14400)  #每隔一天运行一次 4*60*60=s
-        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '09:48:00':
+        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '06:48:00':
             os.system("scrapy crawl mi -o info2.json -t json")
             #time.sleep(14400)  #每隔一天运行一次 24*60*60=86400s
-        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '09:56:00':
+        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '06:56:00':
             os.system("scrapy crawl mi -o info3.json -t json")
             #time.sleep(14400)  #每隔一天运行一次 24*60*60=86400s
-        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '10:04:00':
+        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '07:04:00':
             os.system("scrapy crawl mi -o info4.json -t json")
             #time.sleep(14400)  #每隔一天运行一次 24*60*60=86400s
-        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '10:12:00':
+        if time.strftime('%H:%M:%S', time.localtime(time.time())) == '07:12:00':
             findNotifyMe()
             sendEmail()
             deleteJson()
